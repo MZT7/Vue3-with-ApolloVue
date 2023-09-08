@@ -68,7 +68,7 @@ onMounted(async () => {
     // }
 
     const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
-    console.log("response", response);
+    console.log("response", response.json);
     console.log("working", 'working');
 
     const { result, loading, refetch } = useQuery(Query);
