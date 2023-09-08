@@ -8,10 +8,12 @@ import {
   InMemoryCache,
 } from "@apollo/client/core";
 import router from "./router";
-
-const csrfToken = document.head.querySelector(
-  'meta[name="csrf-token"]'
-).content;
+const csrfToken = "";
+document.addEventListener("DOMContentLoaded", function () {
+  csrfToken = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
+});
 
 // HTTP connection to the API
 const httpLink = createHttpLink({
