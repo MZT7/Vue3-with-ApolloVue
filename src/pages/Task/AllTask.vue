@@ -47,7 +47,7 @@ const Query = gql`
 
 
 
-onMounted(async () => {
+onMounted(() => {
 
     // try {
     //     const response = await fetch( "https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie", {
@@ -67,7 +67,7 @@ onMounted(async () => {
     //     console.error("Error fetching CSRF token:", error);
     // }
 
-    const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
+    const response = fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
     const dat = response.json();
     console.log("response", dat);
     console.log("working", 'working');
