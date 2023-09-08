@@ -44,7 +44,12 @@ const Query = gql`
 
 // }
 
-
+async function getCsrf() {
+    const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
+    const dat = response;
+    console.log("response", dat);
+    console.log("working", 'working');
+}
 
 
 onMounted(() => {
@@ -66,11 +71,8 @@ onMounted(() => {
     // } catch (error) {
     //     console.error("Error fetching CSRF token:", error);
     // }
+    getCsrf()
 
-    const response = fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
-    const dat = response.json();
-    console.log("response", dat);
-    console.log("working", 'working');
 
     const { result, loading, refetch } = useQuery(Query);
     // refetch();
