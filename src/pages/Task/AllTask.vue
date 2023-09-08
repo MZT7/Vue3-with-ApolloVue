@@ -67,21 +67,16 @@ onMounted(async () => {
     //     console.error("Error fetching CSRF token:", error);
     // }
 
+    const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
+    if (response.ok) {
+        const data = await response.json();
+        console.log("response", response);
+        // csrfToken.value = data.csrf_token;
+    } else {
+        console.error("Failed to fetch CSRF token");
+    }
 
-    const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie", {
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }).then((res) => res.json).then((data) => console.log(data))
-    // if (response.ok) {
-    //     const data = await response.json();
-    //     console.log("data", );
-    //     // csrfToken.value = data.csrf_token;
-    // } else {
-    //     console.error("Failed to fetch CSRF token");
-    // }
-
-    // console.log("working", 'working');
+    console.log("working", 'working');
 
     const { result, loading, refetch } = useQuery(Query);
     // refetch();
