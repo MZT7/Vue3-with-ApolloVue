@@ -49,7 +49,7 @@ const Query = gql`
 
 onMounted(() => {
     const { result, loading, refetch } = useQuery(Query);
-    refetch();
+    // refetch();
     watchEffect(() => {
 
         console.log(result?.value?.tasks)
