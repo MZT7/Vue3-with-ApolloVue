@@ -9,10 +9,17 @@ import {
 } from "@apollo/client/core";
 import router from "./router";
 
+const csrfToken = document.head.querySelector(
+  'meta[name="csrf-token"]'
+).content;
+
 // HTTP connection to the API
 const httpLink = createHttpLink({
   // You should use an absolute URL here
   uri: "https://laravel-with-graphql-production.up.railway.app/graphql",
+  headers: {
+    "X-CSRF-TOKEN": csrfToken, // Include the CSRF token here
+  },
 });
 
 // Cache implementation
