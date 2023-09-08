@@ -13,6 +13,9 @@ import router from "./router";
 const httpLink = createHttpLink({
   // You should use an absolute URL here
   uri: "https://laravel-with-graphql-production.up.railway.app/graphql",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // Cache implementation
