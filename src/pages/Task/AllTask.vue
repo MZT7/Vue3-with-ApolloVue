@@ -70,7 +70,7 @@ onMounted(async () => {
     const response = await fetch("https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie");
     if (response.ok) {
         const datan = await response.json();
-        console.log("data", datan);
+        console.log("data", datan ? 'yes' : 'no');
         // csrfToken.value = data.csrf_token;
     } else {
         console.error("Failed to fetch CSRF token");
