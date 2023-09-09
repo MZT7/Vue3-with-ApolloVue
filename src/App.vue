@@ -4,10 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 import axios from 'axios';
 import { onMounted } from 'vue';
 
-// onMounted(()=>{
+onMounted(async () => {
+  await axios.get('https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie');
+})
 
-// })
-await axios.get('https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie');
 
 </script>
 
