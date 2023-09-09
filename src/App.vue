@@ -1,6 +1,14 @@
 <script setup>
 import Task from './pages/Task.vue'
 import { RouterLink, RouterView } from 'vue-router'
+import axios from 'axios';
+import { onMounted } from 'vue';
+
+// onMounted(()=>{
+
+// })
+await axios.get('https://laravel-with-graphql-production.up.railway.app/sanctum/csrf-cookie');
+
 </script>
 
 <template>
