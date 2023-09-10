@@ -31,14 +31,14 @@ const Query = gql`
 const { result, loading } = useQuery(Query, variables);
 
 watchEffect(() => {
-    const newt = form.value = {
+    form.value = {
         title: result?.value?.task?.title ?? '',
         description: result?.value?.task?.description ?? '',
         status: result?.value?.task?.status ?? '',
         due_date: result?.value?.task?.due_date ?? '',
     };
 
-    console.log("NewV", newt)
+    // console.log("NewV", newt)
     // console.log("OldV",)
 })
 

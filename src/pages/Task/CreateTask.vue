@@ -7,11 +7,14 @@ import Checkbox from '../../components/Checkbox.vue';
 import { ref } from 'vue'
 import { useMutation } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
+import { useRouter } from 'vue-router';
 
 defineProps({
     msg: String,
 })
 // const count = ref(0)
+
+const router = useRouter();
 const form = ref({
     title: '',
     description: '',
@@ -39,9 +42,9 @@ const submit = () => {
         due_date: form.value.due_date
     })
 
+    router.push({ name: 'allTask' });
 
-
-    console.log(form.value);
+    // console.log(form.value);
 }
 
 
