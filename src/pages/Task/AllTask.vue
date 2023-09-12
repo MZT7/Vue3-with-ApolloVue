@@ -37,7 +37,12 @@ watch(search, () => {
 onMounted(() => {
 
     refetch();
+    watchEffect(() => {
 
+        // console.log(result?.value?.tasks)
+        Tasks.value = result?.value?.tasks;
+
+    });
 });
 
 const mutation = gql`
